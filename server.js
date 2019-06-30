@@ -4,8 +4,8 @@ const monk = require('monk');
 const app = express();
 const Filter = require('bad-words');
 const rateLimit = require('express-rate-limit');
-
-const db = monk(process.env.MONGO_URI || 'localhost/foodtweets');
+console.log(process.env.MONGODB_URI)
+const db = monk('mongodb+srv://syafiq:syafiq@foodtweetdb-yalqd.mongodb.net/test?retryWrites=true');
 //create collection:tweets
 const tweetdb = db.get('tweets');
 const filter = new Filter();
