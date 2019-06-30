@@ -5,7 +5,7 @@ const app = express();
 const Filter = require('bad-words');
 const rateLimit = require('express-rate-limit');
 console.log(process.env.MONGODB_URI)
-const db = monk('mongodb+srv://syafiq:syafiq@foodtweetdb-yalqd.mongodb.net/test?retryWrites=true');
+const db = monk('mongodb://syafiq:syafiq@foodtweetdb-shard-00-00-yalqd.mongodb.net:27017,foodtweetdb-shard-00-01-yalqd.mongodb.net:27017,foodtweetdb-shard-00-02-yalqd.mongodb.net:27017/test?ssl=true&replicaSet=foodtweetdb-shard-0&authSource=admin&retryWrites=true&w=majority');
 //create collection:tweets
 const tweetdb = db.get('tweets');
 const filter = new Filter();
