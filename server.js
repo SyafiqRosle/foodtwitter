@@ -7,6 +7,7 @@ const rateLimit = require('express-rate-limit');
 const db = monk('mongodb+srv://syafiq:syafiq@foodtweetdb-yalqd.mongodb.net/test?retryWrites=true&w=majority');
 //create collection:tweets
 const tweetdb = db.get('tweets');
+
 const filter = new Filter();
 //incoming requests to server passes thru middleware cors, auto add cors headers
 app.use(cors());
