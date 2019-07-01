@@ -4,7 +4,6 @@ const monk = require('monk');
 const app = express();
 const Filter = require('bad-words');
 const rateLimit = require('express-rate-limit');
-console.log(process.env.MONGODB_URI)
 const db = monk('mongodb://syafiq:syafiq@foodtweetdb-shard-00-00-yalqd.mongodb.net:27017,foodtweetdb-shard-00-01-yalqd.mongodb.net:27017,foodtweetdb-shard-00-02-yalqd.mongodb.net:27017/test?ssl=true&replicaSet=foodtweetdb-shard-0&authSource=admin&retryWrites=true&w=majority');
 //create collection:tweets
 const tweetdb = db.get('tweets');
@@ -17,7 +16,7 @@ app.use(express.json());
 // when client makes a get request on slash route
 app.get('/',(req,res)=>{
     res.json({
-        message: 'hey ee'
+        message: 'Welcome to the backend server'
     })
 })
 
