@@ -15,13 +15,13 @@ app.use(cors());
 app.use(express.json());
 
 // when client makes a get request on slash route
-app.get('/',(req,res)=>{
-    res.json({
-        message: 'Welcome to the backend server'
-    })
-})
+// app.get('/',(req,res)=>{
+//     res.json({
+//         message: 'Welcome to the backend server'
+//     })
+// })
 
-app.get('/tweets',(req,res)=>{
+app.get('/',(req,res)=>{
     tweetdb.find()
     .then(tweets=>{
         res.json(tweets);
