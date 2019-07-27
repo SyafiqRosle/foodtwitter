@@ -4,10 +4,11 @@ const monk = require('monk');
 const app = express();
 const Filter = require('bad-words');
 const rateLimit = require('express-rate-limit');
-const db = monk('mongodb+srv://syafiq:syafiq@foodtweetdb-yalqd.mongodb.net/test?retryWrites=true&w=majority');
+require('dotenv/config')
+console.log(process.env.MONGODB_URI)
+const db = monk(process.env.MONGODB_URI);
 //create collection:tweets
 const tweetdb = db.get('tweets');
-
 const filter = new Filter();
 //incoming requests to server passes thru middleware cors, auto add cors headers
 app.use(cors());
@@ -17,7 +18,7 @@ app.use(express.json());
 // when client makes a get request on slash route
 app.get('/',(req,res)=>{
     res.json({
-        message: 'Welcome to the backend server'
+        message: 'hey ee'
     })
 })
 
@@ -65,4 +66,4 @@ app.post('/tweets',(req,res)=>{
     console.log(req.body);
 })
 var port =  process.env.PORT || 5000
-app.listen(port,()=>console.log("Working well"));
+app.listen(port,()=>console.log("Working well, listening on"+port));
